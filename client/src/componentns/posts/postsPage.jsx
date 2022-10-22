@@ -6,7 +6,6 @@ import { incrementLikesAC } from "../../store/likes/actionCreators";
 import { setCounterAC } from "../../store/likes/actionCreators";
 import CommentsForm from "../commentsForm/commentsForm";
 import { showCommentsAC } from "../../store/comments/actionCreators";
-import { setComments } from "../../store/comments/actions";
 import { setCommentsAC } from "../../store/comments/actionCreators";
 
 
