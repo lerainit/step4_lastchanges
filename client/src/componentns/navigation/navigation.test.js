@@ -1,18 +1,21 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Navigation from './Navigation';
 
 import { Provider } from "react-redux";
-import store from './store'
+import store from '../../store'
+import { BrowserRouter } from 'react-router-dom';
 
 const Component =() =>{
     return (
     <Provider store ={store}>
-        <App/>
+        <BrowserRouter>
+        <Navigation/>
+        </BrowserRouter>
     </Provider>
 )}
-describe('App renders',()=>{
+describe('Navigation renders',()=>{
 
-test('should App match snapshot',()=>{
+test('should Navigation match snapshot',()=>{
 const {asFragment } = render(<Component/>)
 expect(asFragment()).toMatchSnapshot()
 

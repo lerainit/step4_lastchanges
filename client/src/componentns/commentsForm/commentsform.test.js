@@ -1,18 +1,18 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import CommentsForm from './commentsForm';
 
 import { Provider } from "react-redux";
-import store from './store'
+import store from '../../store'
 
 const Component =() =>{
     return (
     <Provider store ={store}>
-        <App/>
+        <CommentsForm/>
     </Provider>
 )}
-describe('App renders',()=>{
+describe('CommentsForm renders',()=>{
 
-test('should App match snapshot',()=>{
+test('should CommentsForm match snapshot',()=>{
 const {asFragment } = render(<Component/>)
 expect(asFragment()).toMatchSnapshot()
 

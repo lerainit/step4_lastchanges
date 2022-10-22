@@ -1,18 +1,18 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Card from './userPostCard';
 
 import { Provider } from "react-redux";
-import store from './store'
+import store from '../../store'
 
 const Component =() =>{
     return (
     <Provider store ={store}>
-        <App/>
+        <Card/>
     </Provider>
 )}
-describe('App renders',()=>{
+describe('Card renders',()=>{
 
-test('should App match snapshot',()=>{
+test('should Card match snapshot',()=>{
 const {asFragment } = render(<Component/>)
 expect(asFragment()).toMatchSnapshot()
 

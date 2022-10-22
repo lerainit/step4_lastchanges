@@ -10,15 +10,15 @@ const UserPage = (props) => {
 
      const productsArr = useSelector(store => store.products.value, shallowEqual)
      const userIndex = props.index
-
-     const products = productsArr[userIndex].posts
-
+     const products = productsArr[userIndex ].posts
+     const posts = useSelector(store => store.comments.value)
+     const userPosts = posts[userIndex].posts
 
      return (
           <>
                <UserHeader id={props.id} />
-               {products.map(({ id, name, price, art, url, hasBackground }, index) => <Card key={index} id={id} name={name} price={price} art={art} url={url} background={hasBackground ? true : false} userIndex={userIndex} index={index} products={products} ></Card>)}
-
+               {products.map(({ id, name, price, art, url, hasBackground }, index) => <Card key={index} id={id} name={name} price={price} art={art} url={url} background={hasBackground ? true : false} userIndex={userIndex} index={index} products={products} userPosts={userPosts}></Card>)}
+         
           </>
      )
 

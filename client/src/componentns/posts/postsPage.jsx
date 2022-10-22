@@ -19,16 +19,16 @@ const PostsPage = () => {
 
   const users = useSelector(store => store.users.value)
   const productsArr = useSelector(store => store.counter.counter)
-  const userIndex = useSelector(store => store.userIndex.value)
-  const user = users[userIndex]
   const comments = useSelector(store => store.comments.value)
-console.log(comments)
+
   const postssArr = useSelector(store => store.products.value)
   const posts = useSelector(store => store.posts.value)
 
   const products = productsArr[1].posts
   const posts1 =postssArr[1].posts
 
+ 
+ 
   return (
     <>
       <div className={styles.post_page_container} >

@@ -9,25 +9,13 @@ import Background from './background';
 import { setProductsAC } from '../../store/products/actionCreator';
 import { setUserIndexAC } from '../../store/userIndex/actionCreators'
 import { setCommentsAC } from '../../store/comments/actionCreators';
-import { setBackground } from '../../store/cardBackground/actions';
 
-const Card = (props) => {
+
+const Card = ({userPosts,userIndex,id,index,background,url}) => {
 
   const dispatch = useDispatch();
- 
 
-  const posts = useSelector(store => store.comments.value)
-
-  const userIndex = props.userIndex
-const background = useSelector(store => store.background.value)
-
-  const userPosts = posts[userIndex].posts
-
-  const id = props.id
-  const index = props.index
-
-
-  let storeBackground = props.background
+let storeBackground = background
 
 
   return (
@@ -44,7 +32,7 @@ const background = useSelector(store => store.background.value)
       }}
         className={styles.img_container}>
 
-        <img className={styles.image} src={props.url} alt='Product ' data-id={id} />
+        <img className={styles.image} src={url} alt='Product ' data-id={id} />
         {storeBackground &&
           <Background handleClick={() => {
             dispatch(openModalAC())
@@ -52,7 +40,7 @@ const background = useSelector(store => store.background.value)
             dispatch(setUserIndexAC(userIndex))
             dispatch({ type: 'SET_VALUE_INDEX', payload: index })
           }
-          } comments={userPosts[index].comments} index={props.index} userIndex={userIndex} />
+          } comments={userPosts[index].comments} index={index} userIndex={userIndex} />
 
         }
 

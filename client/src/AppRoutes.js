@@ -3,21 +3,19 @@ import {Routes, Route} from 'react-router-dom'
 import UserPage from './pages/userpage/userPage';
 import NotFoundPage from './pages/notfoundpage/notfoundpage';
 import PostsPage from './componentns/posts/postsPage';
+import { useSelector } from 'react-redux';
 
 
 const AppRoutes = () => {
-const id1 =1
-const id2 = 2
-const index1 =0
-const index2 =1
 
+const users = useSelector(store =>store.users.value)
     return (
      
         <Routes>
             <Route path='/' element={<PostsPage />   } />
-           <Route path='/user2' element={<UserPage index={index1} id ={id1}/>} />
-           <Route path='/posts' element={<UserPage  />} />
-           <Route path='/user1' element={<UserPage index={index2} id ={id2}/>}/>
+        {users.map(({id},index) => <Route path={`/user${id}`} element={<UserPage index={index} id ={id}/>} />)} 
+           <Route path='/posts' element={<UserPage />} />
+       
            <Route path='*' element={<NotFoundPage />} />
          </Routes>
 
